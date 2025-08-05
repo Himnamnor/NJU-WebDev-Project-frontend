@@ -8,5 +8,5 @@ const api=axios.create({
 const user_id=localStorage.getItem("user_id");
 
 export const getUserInfo=(user_id)=>{
-    return api.get("/${user_id}")
+    return null
 }
