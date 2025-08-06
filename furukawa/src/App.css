@@ -37,8 +37,13 @@
   }
 }
 
-.Header{
-    background-color: #282c34;
+:root {
+    --header-footer-bg-color: #363c5c;
+    --navigation-bg-color: #3D79F2;
+}
+
+.Header {
+    background-color: var(--header-footer-bg-color);
     min-height: 50px;
     height: 60px;
     display: flex;
@@ -47,15 +52,45 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+
 .Footer{
-    background-color: #282c34;
+    background-color: var(--header-footer-bg-color);
     min-height: 20px;
     height: 40px;
     display: flex;
     align-items: center;
     flex-direction: row;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(1px + 2vmin);
     color: white;
-    gap: 30px;
+    gap: 90px;
 }
 
+html, body, #root {
+    height: 100%;
+    margin: 0;
+}
+
+.Page-Layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.Main-Layout {
+    flex-direction: row;
+    flex: 2;
+    overflow: auto;
+}
+
+.Content {
+    height: 100%;
+}
+
+.Navigation{
+    height: 100%;
+    width: 20%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--navigation-bg-color);
+}
