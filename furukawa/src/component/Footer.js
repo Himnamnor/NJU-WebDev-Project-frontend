@@ -8,7 +8,7 @@ export default function Footer(){
   const app_name="Furukawa Sports Room";
   return(
     <div className="Footer">
-      <span>Author: {author}</span>
+      <span style={{marginLeft:"30px"}}>Author: {author}</span>
       <span>Communication: {communication}</span>
       <a href={github_url}>{github}</a>
       <span>{app_name}</span>
