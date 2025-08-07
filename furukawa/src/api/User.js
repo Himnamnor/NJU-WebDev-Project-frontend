@@ -1,4 +1,4 @@
-import axiosInstance from "../util/axiosInstance";
+import axiosInstance from "../util/AxiosInstance";
 
 
 const user_id=localStorage.getItem("user_id");

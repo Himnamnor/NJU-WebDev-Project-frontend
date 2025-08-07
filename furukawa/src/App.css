@@ -84,6 +84,9 @@ html, body, #root {
 
 .Content {
     height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
 }
 
 .Navigation{
@@ -93,4 +96,8 @@ html, body, #root {
     justify-content: center;
     text-align: center;
     background-color: var(--navigation-bg-color);
+}
+
+.ant-menu-item .ant-menu-title-content {
+    margin-left: -10px !important; /* 调整 label 的左边距 */
 }

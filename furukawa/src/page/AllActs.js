@@ -3,13 +3,14 @@ import Footer from "../component/Footer";
 import {Layout} from "antd";
 import Content from "../component/Content";
 import Navigation from "../component/Navigation";
+import Sider from "antd/es/layout/Sider";
 
 export default function AllActs() {
     return(
         <Layout className="Page-Layout">
             <Header/>
             <Layout className="Main-Layout">
-                <Navigation>导航栏</Navigation>
+                <Navigation/>
                 <Content/>
             </Layout>
             <Footer/>
