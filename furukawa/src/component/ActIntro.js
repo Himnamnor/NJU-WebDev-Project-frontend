@@ -13,10 +13,10 @@ export default function ActIntro() {
         <img
           alt="活动图片"
           src={imageUrl}
-          style={{ width: '100%', height: '100px', objectFit: 'cover' }}
+          className='ActImgStyle'
         />
       }
-      style={{ width: 300, height: 400, margin: '20px auto' }}
+      className='ActCardStyle'
     >
       <Meta
         title={actName}

@@ -1,10 +1,16 @@
 import ActIntro from "./ActIntro";
+import {Flex} from "antd";
 
 
 export default function Content(){
     return(
-      <div className="Content">
+      <Flex
+        wrap={true}
+        gap="middle"
+        justify='start'
+        style={{height:'100%', width:'80%'}}
+      >
           <ActIntro/>
-      </div>
+      </Flex>
     )
 }

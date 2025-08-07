@@ -101,3 +101,17 @@ html, body, #root {
 .ant-menu-item .ant-menu-title-content {
     margin-left: -10px !important; /* 调整 label 的左边距 */
 }
+
+.ActImgStyle{
+    width: 280px;
+    height: 210px;
+    object-fit: cover;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.ActCardStyle{
+    width: 300px;
+    height: 300px;
+    margin: 40px;
+}
