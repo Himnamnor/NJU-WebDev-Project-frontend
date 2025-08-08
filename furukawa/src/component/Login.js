@@ -1,7 +1,31 @@
-import {Form, Button, Input, Flex, Checkbox} from 'antd'
+import {Form, Button, Input, Flex, Checkbox, message} from 'antd'
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
-
+import {Link, useNavigate} from "react-router-dom";
+import axiosInstance from "../util/axiosInstance";
+import {useState} from "react";
 export default function Login(){
+
+    const [form]=Form.useForm();
+    const [loading,setLoading]=useState(false);
+    const navigate = useNavigate();
+
+    const onFinish=async (values)=>{
+        if(loading) return;
+        setLoading(true);
+        try{
+            await axiosInstance.post('/user/login',values);
+            message.success("登录成功")
+            form.resetFields();
+            setTimeout(()=>{
+                navigate("/all-activities");
+            },1000);
+        }catch (error){
+            message.error("登录失败，请检查用户名和密码");
+        }finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <Form
             name="login"
@@ -14,16 +38,16 @@ export default function Login(){
             }}
         >
             <Form.Item
-                name="username"
+                name="用户名"
                 rules={[{ required: true, message: '请输入用户名!' }]}
             >
-                <Input prefix={<UserOutlined />} placeholder="Username" />
+                <Input prefix={<UserOutlined />} placeholder="用户名" />
             </Form.Item>
             <Form.Item
-                name="password"
+                name="密码"
                 rules={[{ required: true, message: '请输入密码' }]}
             >
-                <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
+                <Input prefix={<LockOutlined />} type="password" placeholder="密码" />
             </Form.Item>
             <Form.Item>
                 <Flex justify="space-between" align="center">
@@ -36,7 +60,7 @@ export default function Login(){
                 <Button block type="primary" htmlType="submit">
                     登录
                 </Button>
-                or <a href="" >注册</a>
+                or <Link to='/start/register'>注册</Link>
             </Form.Item>
         </Form>
     )
