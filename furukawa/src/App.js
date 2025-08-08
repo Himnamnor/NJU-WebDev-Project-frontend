@@ -6,6 +6,7 @@ import AllActs from "./page/AllActs";
 import Login from "./component/Login";
 import StartPage from "./page/StartPage";
 import Register from "./component/Register";
+import PersonCenter from "./page/PersonCenter";
 function App() {
   return (
     <Router>
@@ -16,7 +17,11 @@ function App() {
           <Route index element={<Navigate to="/start/login" replace />}/>
         </Route>
         <Route path='/' element={<Navigate to="/start" replace /> }/>
-        <Route path='all-activities' element={<AllActs/>}/>
+        <Route path='/all-activities' element={<AllActs/>}/>
+        <Route path='/person-center' element={<PersonCenter/>}>
+          {/*<Route index element={<PersonInfo/>} replace/>*/}
+          {/*<Route path='info' element={<PersonInfo/>}/>*/}
+        </Route>
       </Routes>
     </Router>
   );

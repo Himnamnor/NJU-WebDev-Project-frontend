@@ -3,6 +3,7 @@ import Footer from "../component/Footer";
 import {Layout} from "antd";
 import Content from "../component/Content";
 import Navigation from "../component/Navigation";
+import HeaderPerson from "../component/HeaderPerson";
 
 export default function AllActs() {
     return(

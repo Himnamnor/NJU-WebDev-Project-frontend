@@ -4,7 +4,7 @@ import axiosInstance from "../util/axiosInstance";
 const user_id=localStorage.getItem("user_id");
 
 export const getUserInfo=()=>{
-    return axiosInstance.get(`/user/1`);
+    return axiosInstance.get(`/user/${user_id}`);
 }
 
 export const registerUser=(user)=>{

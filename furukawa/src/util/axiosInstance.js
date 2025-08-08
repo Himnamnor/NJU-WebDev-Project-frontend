@@ -8,10 +8,12 @@ const axiosInstance=axios.create({
 
 axiosInstance.interceptors.request.use(
   (config)=>{
-    const token=localStorage.getItem("token");
+    const token=localStorage.getItem("authorization");
     if(token){
-      config.headers['Authorization']=token;
+      config.headers['authorization']=token;
+      //console.log('from requst token:', token);
     }
+    //console.log(config);
     return config;
   },
   (error)=>{
@@ -21,6 +23,15 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response)=>{
+
+      //console.log(response);
+
+      const token = response.headers['authorization'];
+      if (token) {
+         // console.log('current token: ',token);
+          localStorage.setItem('authorization', token);
+      }
+
     const res=response.data;
     if(res.code!==200){
       message.error(res.messages||"请求失败");

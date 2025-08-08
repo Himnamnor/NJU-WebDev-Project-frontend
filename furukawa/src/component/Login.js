@@ -13,9 +13,14 @@ export default function Login(){
         if(loading) return;
         setLoading(true);
         try{
-            await axiosInstance.post('/user/login',values);
+            const res=await axiosInstance.post('/user/login',values);
             message.success("登录成功")
             form.resetFields();
+
+            const user_id=res.userId;
+            console.log(user_id);
+            localStorage.setItem("user_id",user_id);
+
             setTimeout(()=>{
                 navigate("/all-activities");
             },1000);
@@ -36,18 +41,19 @@ export default function Login(){
                 padding:'80px',
                 borderRadius:'10px',
             }}
+            onFinish={onFinish}
         >
             <Form.Item
-                name="用户名"
+                name="userName"
                 rules={[{ required: true, message: '请输入用户名!' }]}
             >
                 <Input prefix={<UserOutlined />} placeholder="用户名" />
             </Form.Item>
             <Form.Item
-                name="密码"
+                name="password"
                 rules={[{ required: true, message: '请输入密码' }]}
             >
-                <Input prefix={<LockOutlined />} type="password" placeholder="密码" />
+                <Input.Password prefix={<LockOutlined />} type="password" placeholder="密码"  />
             </Form.Item>
             <Form.Item>
                 <Flex justify="space-between" align="center">
